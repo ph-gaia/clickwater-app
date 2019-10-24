@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Click Water</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="label_title">Click Water</string>
+    <string name="title_activity_feed">Feed Dogs</string>
+    <string name="label_sub_title">Para acessar, insira abaixo suas credenciais</string>
+
+    <string name="hello">Olá</string>
+    <string name="wellcome">Seja bem vindo</string>
+    <string name="btn_log_in">Acessar</string>
+    <string name="hint_email_address">Qual é seu e-mail?</string>
+    <string name="field_empty">Campo obrigatório, insira os dados válido</string>
+    <string name="email_invalid">Ops...! E-mail inválido, tente novamente!</string>
+    <string name="hint_password">Qual é sua senha?</string>
+    <string name="password_invalid">Ops...! Sua senha deve conter 6 dígitos!</string>
+
+    <string name="btn_cancel">Cancelar</string>
+    <string name="btn_dismiss">Fechar</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_retry">Tente novamente</string>
+
+    <string name="most_popular">Populares</string>
+    <string name="offers">Ofertas</string>
+    <string name="news">Novos</string>
+    <string name="more">Mais</string>
+</resources>
