@@ -1,9 +1,7 @@
 package br.com.clickwater.mvp.signin;
 
 import android.content.Context;
-import android.util.Patterns;
 import android.view.View;
-
 import br.com.clickwater.R;
 
 public class SigninPresenter implements SigninMVP.Presenter {
@@ -43,14 +41,14 @@ public class SigninPresenter implements SigninMVP.Presenter {
     }
 
     @Override
-    public void singupLogin(String email, String password) {
-        if (!email.isEmpty() || !password.isEmpty())
-            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+    public void singupLogin(String username, String password) {
+        if (!username.isEmpty() || !password.isEmpty())
+            if (username.length() <= 6)
                 view.showTextError(getContext().getString(R.string.email_invalid));
             else if (password.length() <= 6) {
-                view.showTextError(getContext().getString(R.string.password_invalid));
+                view.showPasswordTextError(getContext().getString(R.string.password_invalid));
             } else {
-                model.requestLogin(email, password);
+                model.requestLogin(username, password);
             }
         else
             view.showTextError(getContext().getString(R.string.field_empty));

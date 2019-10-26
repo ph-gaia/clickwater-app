@@ -3,24 +3,132 @@
     <string name="title_activity_maps">Map</string>
     <string name="label_title">Click Water</string>
     <string name="title_activity_feed">Feed Dogs</string>
-    <string name="label_sub_title">Para acessar, insira abaixo suas credenciais</string>
+    <string name="label_sub_title">Fácil como matar a sede, só basta inserir seus dados</string>
 
+    <string name="sign_up">Cadastrar</string>
+    <string name="tx_me_sign_up">me Cadastrar</string>
     <string name="hello">Olá</string>
     <string name="wellcome">Seja bem vindo</string>
+    <string name="do_login">Realizar login</string>
     <string name="btn_log_in">Acessar</string>
-    <string name="hint_email_address">Qual é seu e-mail?</string>
+    <string name="hint_confirm_password">Confirmar senha</string>
+    <string name="hint_name">Informe seu nome</string>
+    <string name="hint_phone">Informe seu telefone</string>
+    <string name="hint_email_to_login">Informe seu e-mail</string>
+    <string name="hint_username">Informe seu usuário</string>
+    <string name="create_my_account"> Criar minha conta </string>
+    <string name="or">ou</string>
     <string name="field_empty">Campo obrigatório, insira os dados válido</string>
-    <string name="email_invalid">Ops...! E-mail inválido, tente novamente!</string>
-    <string name="hint_password">Qual é sua senha?</string>
-    <string name="password_invalid">Ops...! Sua senha deve conter 6 dígitos!</string>
+    <string name="email_invalid">Ops…! usuário inválido, tente novamente!</string>
+    <string name="name_invalid">Ops…! preenchimento obrigatório!</string>
+    <string name="hint_password">Informe sua senha</string>
+    <string name="password_invalid">Ops…! Sua senha deve conter 6 dígitos!</string>
+    <string name="item_privacy_policy">Políticas de privacidade</string>
+    <string name="privacy_policy"> Políticas de privacidade </string>
 
     <string name="btn_cancel">Cancelar</string>
     <string name="btn_dismiss">Fechar</string>
     <string name="btn_ok">OK</string>
     <string name="btn_retry">Tente novamente</string>
 
+    <string name="close_kart">Concluir pedido</string>
+    <string name="products">Produtos</string>
     <string name="most_popular">Populares</string>
     <string name="offers">Ofertas</string>
     <string name="news">Novos</string>
     <string name="more">Mais</string>
+
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <!-- ConfigCreditCardsListFragment -->
+    <string name="config_credit_cards_tab_list">CARTÕES</string>
+
+    <string name="credit_card_list_empty">
+        Ainda não há cartões de crédito cadastrados.
+    </string>
+
+    <string name="credit_card_removed">
+        Cartão de crédito removido com sucesso.
+    </string>
+
+    <string name="credit_card_enterprise_label">Bandeira:</string>
+    <string name="credit_card_number_label">Número:</string>
+    <string name="credit_card_owner_name_label">Nome:</string>
+
+    <string name="remove_item">Remover</string>
+    <string name="remove_item_going">Removendo&#8230;</string>
+
+
+    <!-- ConfigNewCreditCardFragment -->
+    <string name="config_credit_cards_tab_new">NOVO</string>
+
+    <string name="add_credit_card_number_label">Número:</string>
+    <string name="add_credit_card_enterprise_label">Bandeira:</string>
+    <string name="add_credit_card_owner_name_label">
+        Nome (como está no cartão):
+    </string>
+    <string name="add_credit_card_owner_reg_number_label">
+        CPF / CNPJ do proprietário do cartão:
+    </string>
+    <string name="add_credit_card_expiry_label">Vencimento:</string>
+    <string name="add_credit_card_expiry_month_label">Mês:</string>
+    <string name="add_credit_card_expiry_year_label">
+        Ano (quatro dígitos):
+    </string>
+    <string name="add_credit_card_security_code_label">
+        Código de segurança:
+    </string>
+
+    <string name="add_credit_card">Adicionar cartão</string>
+    <string name="add_credit_card_going">Adicionando&#8230;</string>
+
+    <string name="invalid_credit_card">
+        Cartão inválido, verifique os dados novamente.
+    </string>
+
+    <string name="config_delivery_addresses_tab_list">ENDEREÇOS</string>
+
+    <string name="delivery_address_street_label">Logradouro:</string>
+    <string name="delivery_address_number_label">Número:</string>
+    <string name="delivery_address_zip_code_label">CEP:</string>
+    <string name="delivery_address_neighborhood_label">Bairro:</string>
+    <string name="delivery_address_city_label">Cidade:</string>
+    <string name="delivery_address_state_label">Estado:</string>
+    <string name="delivery_address_complement_label">Complemento:</string>
+
+    <string name="update_item">Atualizar</string>
+
+    <string name="delivery_address_list_empty">
+        Ainda não há endereços de entrega cadastrados.
+    </string>
+
+    <string name="delivery_address_removed">
+        Endereço removido com sucesso.
+    </string>
+
+    <!-- ConfigNewDeliveryAddressFragment -->
+    <string name="config_delivery_address_tab_new">NOVO</string>
+
+    <string name="add_delivery_address_street_label">Logradouro:</string>
+    <string name="add_delivery_address_number_label">Número:</string>
+    <string name="add_delivery_address_complement_label">Complemento:</string>
+    <string name="add_delivery_address_zip_code_label">CEP:</string>
+    <string name="add_delivery_address_neighborhood_label">Bairro:</string>
+    <string name="add_delivery_address_city_label">Cidade:</string>
+    <string name="add_delivery_address_state_label">Estado:</string>
+
+    <string name="invalid_delivery_address">
+        Falhou, tente novamente.
+    </string>
+
+    <string name="add_delivery_address">Adicionar endereço</string>
+    <string name="add_delivery_address_going">Adicionando&#8230;</string>
+
+    <!-- ConfigUpdateDeliveryAddressFragment -->
+    <string name="updating_delivery_address">Atualizando endereço.</string>
+
+    <string name="update_delivery_address">Atualizar endereço</string>
+    <string name="update_delivery_address_going">Atualizando&#8230;</string>
 </resources>

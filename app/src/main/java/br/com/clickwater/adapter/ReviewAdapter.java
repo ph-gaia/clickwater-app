@@ -15,7 +15,6 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.List;
 
 import br.com.clickwater.R;
-import br.com.clickwater.data.model.Review;
 
 
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.MyViewHolder> {

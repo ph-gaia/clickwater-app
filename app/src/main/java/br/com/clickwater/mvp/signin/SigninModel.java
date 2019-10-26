@@ -18,12 +18,12 @@ public class SigninModel implements SigninMVP.Model {
     }
 
     @Override
-    public void requestLogin(String email, String password) {
+    public void requestLogin(String username, String password) {
         try {
             presenter.showProgressBar(true);
             presenter.showButtonLogin(false);
 
-            Call<Login> call = ApiManager.get().requestLogin(new RequestLogin(email, password));
+            Call<Login> call = ApiManager.get().requestLogin(new RequestLogin(username, password));
 
             call.enqueue(new Callback<Login>() {
                 @Override

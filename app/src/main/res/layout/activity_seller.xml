@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             app:cardElevation="5dp"
             app:cardCornerRadius="0dp"
-            app:cardBackgroundColor="#FFFFFF">
+            app:cardBackgroundColor="@color/white">
 
             <include layout="@layout/toolbar"/>
 
@@ -33,6 +33,7 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/img_seller"
                 android:layout_width="67.3dp"
                 android:layout_height="67.3dp"
                 android:background="@drawable/restaurant"/>
@@ -48,17 +49,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Riverfront Restaurant"
+                    android:id="@+id/txtName"
+                    android:text="Nome da distribuidora"
                     android:textSize="18.7sp"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:fontFamily="@font/nunito_regular"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="221 B Baker Street, London"
-                    android:textColor="#393939"
+                    android:id="@+id/txtAddress"
+                    android:text="Endereco da distribuidora"
+                    android:textColor="@color/sub_title"
                     android:fontFamily="@font/nunito_regular"
                     android:textSize="10.7sp"/>
             </LinearLayout>
@@ -77,23 +80,23 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="3dp"
             app:cardCornerRadius="0dp"
-            app:cardBackgroundColor="#FFFFFF">
+            app:cardBackgroundColor="@color/white">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:textColor="#FFFFFF"
-            android:text="Menu"
+            android:textColor="@color/white"
+            android:text="@string/products"
             android:gravity="center"
-            android:background="#F73A36"
+            android:background="@color/red"
             android:fontFamily="@font/nunito_black"
             android:padding="13dp"/>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/recyclerViewProducts"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="22.7dp"
@@ -107,8 +110,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_rect"
-        android:textColor="#FFFFFF"
-        android:text="BOOK ORDER"
+        android:textColor="@color/white"
+        android:text="@string/close_kart"
         android:layout_marginLeft="13.3dp"
         android:layout_marginRight="13.3dp"
         android:layout_marginBottom="20dp"

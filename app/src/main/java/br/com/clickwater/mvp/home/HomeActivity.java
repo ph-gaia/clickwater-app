@@ -9,7 +9,6 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 import br.com.clickwater.R;
 import br.com.clickwater.adapter.HomePopularAdapter;
-import br.com.clickwater.data.model.DepositHome;
 import br.com.clickwater.data.model.Seller;
 import br.com.clickwater.utils.AppPreference;
 

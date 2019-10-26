@@ -8,17 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import br.com.clickwater.R;
-import br.com.clickwater.data.model.BookOrder;
 
 
-public class BookOrderAdapter extends RecyclerView.Adapter<BookOrderAdapter.MyViewHolder> {
+public class SellerDetailsAdapter extends RecyclerView.Adapter<SellerDetailsAdapter.MyViewHolder> {
 
     Context context;
     private List<BookOrder> OfferList;
@@ -33,22 +31,22 @@ public class BookOrderAdapter extends RecyclerView.Adapter<BookOrderAdapter.MyVi
         public MyViewHolder(View view) {
             super(view);
 
-            image = (ImageView) view.findViewById(R.id.image);
-            title = (TextView) view.findViewById(R.id.title);
-            linear = (LinearLayout) view.findViewById(R.id.linear);
+            image = view.findViewById(R.id.image);
+            title = view.findViewById(R.id.title);
+            linear = view.findViewById(R.id.linear);
         }
     }
 
-    public BookOrderAdapter(Context context, List<BookOrder> offerList) {
+    public SellerDetailsAdapter(Context context, List<BookOrder> offerList) {
         this.OfferList = offerList;
         this.context = context;
     }
 
     @Override
-    public BookOrderAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SellerDetailsAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.raw_book_order, parent, false);
-        return new BookOrderAdapter.MyViewHolder(itemView);
+                .inflate(R.layout.raw_product_seller, parent, false);
+        return new SellerDetailsAdapter.MyViewHolder(itemView);
     }
 
     @Override
@@ -57,14 +55,13 @@ public class BookOrderAdapter extends RecyclerView.Adapter<BookOrderAdapter.MyVi
         holder.image.setImageResource(lists.getImage());
         holder.title.setText(lists.getTitle());
 
-        if (myPos == position){
+        if (myPos == position) {
             holder.title.setTextColor(Color.parseColor("#000000"));
             holder.linear.setBackgroundResource(R.drawable.ic_selector_1);
-        }else {
+        } else {
             holder.title.setTextColor(Color.parseColor("#484646"));
             holder.linear.setBackgroundResource(R.drawable.ic_selector_2);
         }
-
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,8 +69,6 @@ public class BookOrderAdapter extends RecyclerView.Adapter<BookOrderAdapter.MyVi
                 myPos = position;
                 notifyDataSetChanged();
             }
-
-
         });
 
     }

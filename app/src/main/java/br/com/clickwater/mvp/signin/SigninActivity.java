@@ -13,6 +13,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import br.com.clickwater.R;
 import br.com.clickwater.mvp.home.HomeActivity;
+import br.com.clickwater.mvp.signup.SignupActivity;
 
 public class SigninActivity extends AppCompatActivity implements SigninMVP.View {
 
@@ -51,6 +52,11 @@ public class SigninActivity extends AppCompatActivity implements SigninMVP.View 
     }
 
     @Override
+    public void showPasswordTextError( String mensagem ) {
+        textInputEmail.setError(mensagem);
+    }
+
+    @Override
     public void startIntent() {
         startActivity(new Intent(this, HomeActivity.class));
         finish();
@@ -63,11 +69,15 @@ public class SigninActivity extends AppCompatActivity implements SigninMVP.View 
 
     @Override
     public void showButtonLogin(int visibilidade) {
-        findViewById(R.id.btnLogin).setVisibility( visibilidade );
+        findViewById(R.id.tv_sign_up).setVisibility( visibilidade );
     }
 
     public void requestLogin(View view) {
         presenter.singupLogin(editLoginEmail.getText().toString().trim(), editLoginPassword.getText().toString().trim());
+    }
+
+    public void callSignUpActivity(View view) {
+        startActivity(new Intent(this, SignupActivity.class));
     }
 
 }

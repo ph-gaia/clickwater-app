@@ -18,10 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".mvp.signin.SigninActivity" />
+        <activity android:name=".mvp.signup.SignupActivity" />
         <activity android:name=".mvp.home.HomeActivity" />
-        <activity android:name=".mvp.FoodOrderListActivity"/>
-        <activity android:name=".mvp.BookOrderActivity" />
-        <activity android:name=".mvp.ReviewActivity" />
+        <activity android:name=".mvp.seller.SellerActivity" />
+        <activity android:name=".mvp.payment.PaymentActivity" />
+        <activity android:name=".mvp.newAddress.NewAddressActivity" />
+        <activity android:name=".mvp.address.AddressActivity" />
     </application>
 
 </manifest>

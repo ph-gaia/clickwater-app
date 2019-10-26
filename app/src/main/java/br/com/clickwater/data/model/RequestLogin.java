@@ -2,10 +2,10 @@ package br.com.clickwater.data.model;
 
 public class RequestLogin {
 
-    final String email, password;
+    final String username, password;
 
-    public RequestLogin(String email, String password) {
-        this.email = email;
+    public RequestLogin(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 

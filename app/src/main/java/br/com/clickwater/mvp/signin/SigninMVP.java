@@ -9,6 +9,7 @@ public interface SigninMVP {
         void showProgressBar( int visibilidade );
         void showButtonLogin( int visibilidade );
         void showTextError( String mensagem );
+        void showPasswordTextError( String mensagem );
         void startIntent();
     }
 
@@ -16,14 +17,14 @@ public interface SigninMVP {
         void showSnackbar( String mensagem );
         void showProgressBar( boolean status );
         void showButtonLogin( boolean visibilidade );
-        void singupLogin( String email, String password );
+        void singupLogin( String username, String password );
         void setView( SigninMVP.View view );
         Context getContext();
         void startIntent();
     }
 
     interface Model {
-        void requestLogin(String email, String password);
+        void requestLogin(String username, String password);
     }
 
 }
