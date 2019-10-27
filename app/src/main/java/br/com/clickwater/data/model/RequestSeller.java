@@ -2,10 +2,7 @@ package br.com.clickwater.data.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class DepositHome {
+public class RequestSeller {
 
     @SerializedName("message")
     private String message;
@@ -14,7 +11,7 @@ public class DepositHome {
     private String status;
 
     @SerializedName("data")
-    public List<Seller> data = new ArrayList();
+    private Seller seller;
 
     public String getMessage() {
         return message;
@@ -32,11 +29,11 @@ public class DepositHome {
         this.status = status;
     }
 
-    public List<Seller> getData() {
-        return data;
+    public Seller getSeller() {
+        return seller;
     }
 
-    public void setData(List<Seller> data) {
-        this.data = data;
+    public void setSeller(Seller seller) {
+        this.seller = seller;
     }
 }

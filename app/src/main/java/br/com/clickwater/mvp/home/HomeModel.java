@@ -1,5 +1,9 @@
 package br.com.clickwater.mvp.home;
 
+import android.util.Log;
+
+import java.util.List;
+
 import br.com.clickwater.data.model.DepositHome;
 import br.com.clickwater.data.model.Seller;
 import br.com.clickwater.data.network.ApiManager;
@@ -30,8 +34,8 @@ public class HomeModel implements HomeMVP.Model {
                 @Override
                 public void onResponse(Call<DepositHome> call, Response<DepositHome> response) {
                     if (response.isSuccessful()) {
-                        DepositHome resource = response.body();
-                        presenter.popularRecyclerView(resource.data);
+                        List<Seller> resource = response.body().getData();
+                        presenter.popularRecyclerView(resource);
                     } else {
                         presenter.showSnackbar("Erro!" + response.body());
                     }

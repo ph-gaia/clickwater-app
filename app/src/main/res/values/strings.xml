@@ -5,6 +5,7 @@
     <string name="title_activity_feed">Feed Dogs</string>
     <string name="label_sub_title">Fácil como matar a sede, só basta inserir seus dados</string>
 
+    <string name="sellers">Distribuidor</string>
     <string name="sign_up">Cadastrar</string>
     <string name="tx_me_sign_up">me Cadastrar</string>
     <string name="hello">Olá</string>
@@ -32,7 +33,7 @@
     <string name="btn_retry">Tente novamente</string>
 
     <string name="close_kart">Concluir pedido</string>
-    <string name="products">Produtos</string>
+    <string name="listProducts">Produtos</string>
     <string name="most_popular">Populares</string>
     <string name="offers">Ofertas</string>
     <string name="news">Novos</string>

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DepositHome {
+public class ListProduct {
 
     @SerializedName("message")
     private String message;
@@ -14,7 +14,7 @@ public class DepositHome {
     private String status;
 
     @SerializedName("data")
-    public List<Seller> data = new ArrayList();
+    public List<Product> data = new ArrayList();
 
     public String getMessage() {
         return message;
@@ -32,11 +32,11 @@ public class DepositHome {
         this.status = status;
     }
 
-    public List<Seller> getData() {
+    public List<Product> getData() {
         return data;
     }
 
-    public void setData(List<Seller> data) {
+    public void setData(List<Product> data) {
         this.data = data;
     }
 }

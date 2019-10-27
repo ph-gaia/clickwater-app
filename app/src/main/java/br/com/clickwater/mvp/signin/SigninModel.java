@@ -1,5 +1,7 @@
 package br.com.clickwater.mvp.signin;
 
+import android.util.Log;
+
 import br.com.clickwater.data.model.Login;
 import br.com.clickwater.data.model.RequestLogin;
 import br.com.clickwater.data.model.User;
@@ -38,6 +40,7 @@ public class SigninModel implements SigninMVP.Model {
                 public void onResponse(Call<Login> call, Response<Login> response) {
                     User user = response.body().getUser();
 
+                    presenter.showSnackbar(response.body().getMessage());
                     saveTokenAndEmailUser(user);
 
                     presenter.showProgressBar(false);

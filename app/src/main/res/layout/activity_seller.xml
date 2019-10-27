@@ -5,23 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mvp.BookOrderActivity">
+    tools:context=".mvp.seller.SellerActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_height="wrap_content"
-            app:cardElevation="5dp"
-            app:cardCornerRadius="0dp"
-            app:cardBackgroundColor="@color/white">
+            android:layout_width="match_parent"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-            <include layout="@layout/toolbar"/>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.appbar.AppBarLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,10 +89,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:textColor="@color/white"
-            android:text="@string/products"
+            android:textColor="@color/colorText"
+            android:text="@string/listProducts"
             android:gravity="center"
-            android:background="@color/red"
+            android:background="@color/colorPrimaryDark"
             android:fontFamily="@font/nunito_black"
             android:padding="13dp"/>
 
@@ -109,8 +112,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_rect"
-        android:textColor="@color/white"
+        android:background="@drawable/bt_nav_header_login_bg"
+        android:textColor="@android:color/white"
         android:text="@string/close_kart"
         android:layout_marginLeft="13.3dp"
         android:layout_marginRight="13.3dp"

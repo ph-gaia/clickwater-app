@@ -2,6 +2,9 @@ package br.com.clickwater.mvp.seller;
 
 import android.content.Context;
 
+import java.util.List;
+
+import br.com.clickwater.data.model.Product;
 import br.com.clickwater.data.model.Seller;
 
 public class SellerPresenter implements SellerMVP.Presenter {
@@ -36,5 +39,15 @@ public class SellerPresenter implements SellerMVP.Presenter {
     @Override
     public void requestSellerDetails(String token) {
         model.requestSellerDetails(token);
+    }
+
+    @Override
+    public void requestProductSeller(String token, int sellerId) {
+        model.requestProductSeller(token, sellerId);
+    }
+
+    @Override
+    public void populateListProducts(List<Product> listProducts) {
+        view.populateListProducts(listProducts);
     }
 }

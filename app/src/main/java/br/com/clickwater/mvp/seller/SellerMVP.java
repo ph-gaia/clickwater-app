@@ -2,6 +2,10 @@ package br.com.clickwater.mvp.seller;
 
 import android.content.Context;
 
+import java.util.List;
+
+import br.com.clickwater.data.model.ListProduct;
+import br.com.clickwater.data.model.Product;
 import br.com.clickwater.data.model.Seller;
 
 public interface SellerMVP {
@@ -9,6 +13,7 @@ public interface SellerMVP {
     interface View {
         void showToast( String mensagem );
         void popularSellerDetails(Seller seller);
+        void populateListProducts(List<Product> listProducts);
     }
 
     interface Presenter {
@@ -17,10 +22,13 @@ public interface SellerMVP {
         Context getContext();
         void popularSellerDetails(Seller seller);
         void requestSellerDetails(String token);
+        void requestProductSeller(String token, int sellerId);
+        void populateListProducts(List<Product> listProducts);
     }
 
 
     interface Model {
         void requestSellerDetails(String token);
+        void requestProductSeller(String token, int sellerId);
     }
 }

@@ -8,19 +8,24 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
 import br.com.clickwater.R;
+import br.com.clickwater.data.model.Product;
 
 
-public class SellerDetailsAdapter extends RecyclerView.Adapter<SellerDetailsAdapter.MyViewHolder> {
+public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.MyViewHolder> {
 
     Context context;
-    private List<BookOrder> OfferList;
+    private List<Product> ProductList;
     int myPos = 0;
+    private ProductListAdapter.ProductAdapterListener listener;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -34,26 +39,39 @@ public class SellerDetailsAdapter extends RecyclerView.Adapter<SellerDetailsAdap
             image = view.findViewById(R.id.image);
             title = view.findViewById(R.id.title);
             linear = view.findViewById(R.id.linear);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onProductSelected(ProductList.get(getAdapterPosition()));
+                }
+            });
         }
     }
 
-    public SellerDetailsAdapter(Context context, List<BookOrder> offerList) {
-        this.OfferList = offerList;
+    public ProductListAdapter(Context context, List<Product> ProductList, ProductAdapterListener listener) {
+        this.ProductList = ProductList;
         this.context = context;
+        this.listener = listener;
     }
 
     @Override
-    public SellerDetailsAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ProductListAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.raw_product_seller, parent, false);
-        return new SellerDetailsAdapter.MyViewHolder(itemView);
+        return new ProductListAdapter.MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
-        final BookOrder lists = OfferList.get(position);
-        holder.image.setImageResource(lists.getImage());
-        holder.title.setText(lists.getTitle());
+        final Product lists = ProductList.get(position);
+
+        Glide.with(context)
+                .load(lists.getImage_url())
+                .centerCrop()
+                .placeholder(R.drawable.loading_spinner)
+                .into(holder.image);
+        holder.title.setText(lists.getName());
 
         if (myPos == position) {
             holder.title.setTextColor(Color.parseColor("#000000"));
@@ -75,9 +93,12 @@ public class SellerDetailsAdapter extends RecyclerView.Adapter<SellerDetailsAdap
 
     @Override
     public int getItemCount() {
-        return OfferList.size();
+        return ProductList.size();
     }
 
+    public interface ProductAdapterListener {
+        void onProductSelected(Product product);
+    }
 }
 
 

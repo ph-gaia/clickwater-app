@@ -21,6 +21,8 @@ public class HomePopularAdapter extends RecyclerView.Adapter<HomePopularAdapter.
 
     Context context;
     private List<Seller> OfferList;
+    private HomePopularAdapter.SellerAdapterListener listener;
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView image;
@@ -30,12 +32,20 @@ public class HomePopularAdapter extends RecyclerView.Adapter<HomePopularAdapter.
             image = (ImageView) view.findViewById(R.id.image);
             title = (TextView) view.findViewById(R.id.title);
             address = (TextView) view.findViewById(R.id.txtAddress);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onSellerSelected(OfferList.get(getAdapterPosition()));
+                }
+            });
         }
     }
 
-    public HomePopularAdapter(Context context, List<Seller> offerList) {
+    public HomePopularAdapter(Context context, List<Seller> offerList, SellerAdapterListener listener) {
         this.OfferList = offerList;
         this.context = context;
+        this.listener = listener;
     }
 
     @Override
@@ -62,6 +72,10 @@ public class HomePopularAdapter extends RecyclerView.Adapter<HomePopularAdapter.
     @Override
     public int getItemCount() {
         return OfferList.size();
+    }
+
+    public interface SellerAdapterListener {
+        void onSellerSelected(Seller seller);
     }
 
 }

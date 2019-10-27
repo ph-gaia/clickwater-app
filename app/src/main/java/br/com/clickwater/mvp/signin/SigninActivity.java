@@ -2,6 +2,7 @@ package br.com.clickwater.mvp.signin;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.EditText;
 
@@ -27,8 +28,13 @@ public class SigninActivity extends AppCompatActivity implements SigninMVP.View 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
         presenter = new SigninPresenter();
-        presenter.setView( this );
+        presenter.setView(this);
         bindView();
     }
 
@@ -47,12 +53,12 @@ public class SigninActivity extends AppCompatActivity implements SigninMVP.View 
     }
 
     @Override
-    public void showTextError( String mensagem ) {
+    public void showTextError(String mensagem) {
         textInputEmail.setError(mensagem);
     }
 
     @Override
-    public void showPasswordTextError( String mensagem ) {
+    public void showPasswordTextError(String mensagem) {
         textInputEmail.setError(mensagem);
     }
 
@@ -64,12 +70,12 @@ public class SigninActivity extends AppCompatActivity implements SigninMVP.View 
 
     @Override
     public void showProgressBar(int visibilidade) {
-        findViewById(R.id.progressBar).setVisibility( visibilidade );
+        findViewById(R.id.progressBar).setVisibility(visibilidade);
     }
 
     @Override
     public void showButtonLogin(int visibilidade) {
-        findViewById(R.id.tv_sign_up).setVisibility( visibilidade );
+        findViewById(R.id.tv_sign_up).setVisibility(visibilidade);
     }
 
     public void requestLogin(View view) {

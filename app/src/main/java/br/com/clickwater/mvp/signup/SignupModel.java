@@ -33,6 +33,7 @@ public class SignupModel implements SignupMVP.Model {
                 @Override
                 public void onResponse(Call<RequestUser> call, Response<RequestUser> response) {
                     Log.i("INFO", "data: " + response.body());
+                    presenter.showSnackbar("Usuário inserido com sucesso");
                 }
             });
 

@@ -3,8 +3,10 @@ package br.com.clickwater.data.network;
 import br.com.clickwater.data.model.Address;
 import br.com.clickwater.data.model.AddressList;
 import br.com.clickwater.data.model.DepositHome;
+import br.com.clickwater.data.model.ListProduct;
 import br.com.clickwater.data.model.Login;
 import br.com.clickwater.data.model.RequestLogin;
+import br.com.clickwater.data.model.RequestSeller;
 import br.com.clickwater.data.model.RequestUser;
 import br.com.clickwater.data.model.Seller;
 import retrofit2.Call;
@@ -22,23 +24,23 @@ public interface ApiInterface {
 
     @GET("seller/popular")
     @Headers("Content-Type:application/json")
-    Call<DepositHome> requestPopular(@Header("Bearer") String token);
+    Call<DepositHome> requestPopular(@Header("Authorization") String token);
 
     @GET("seller/offers")
     @Headers("Content-Type:application/json")
-    Call<DepositHome> requestOffers(@Header("Bearer") String token);
+    Call<DepositHome> requestOffers(@Header("Authorization") String token);
 
     @GET("seller/news")
     @Headers("Content-Type:application/json")
-    Call<DepositHome> requestNews(@Header("Bearer") String token);
+    Call<DepositHome> requestNews(@Header("Authorization") String token);
 
-    @GET("seller/news")
+    @GET("seller/1")
     @Headers("Content-Type:application/json")
-    Call<Seller> requestSeller(@Header("Bearer") String token);
+    Call<RequestSeller> requestSeller(@Header("Authorization") String token);
 
     @GET("seller/popular")
     @Headers("Content-Type:application/json")
-    Call<AddressList> requestAddress(@Header("Bearer") String token);
+    Call<AddressList> requestAddress(@Header("Authorization") String token);
 
     @POST("address")
     @Headers({"Content-Type:application/json"})
@@ -47,4 +49,8 @@ public interface ApiInterface {
     @POST("users")
     @Headers({"Content-Type:application/json"})
     Call<RequestUser> requestCreateUsers(@Body RequestUser address);
+
+    @GET("product")
+    @Headers("Content-Type:application/json")
+    Call<ListProduct> requestProducts(@Header("Authorization") String token);
 }
