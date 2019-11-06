@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -65,6 +67,8 @@ public class AddressActivity extends AppCompatActivity implements AddressMVP.Vie
     public void popularRecyclerView(List<Address> addresses) {
         AddressesListAdapter adapter = new AddressesListAdapter(this, addresses);
         rclViewAddress.setAdapter(adapter);
+        rclViewAddress.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rclViewAddress.setItemAnimator(new DefaultItemAnimator());
     }
 
     public void addNewAddress(View view) {

@@ -30,7 +30,7 @@ public class Address {
     public Integer state;
 
     public String getStateName( Context context ) {
-        return context.getResources().getStringArray( R.array.states )[ state ];
+        return context.getResources().getStringArray( R.array.states )[ 1 ];
     }
 
     public String getStreet() {
