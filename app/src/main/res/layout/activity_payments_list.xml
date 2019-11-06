@@ -6,7 +6,8 @@
     style="@style/NestedScrollBarStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".mvp.payment.PaymentActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,18 +17,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
-            android:orientation="vertical"
-            tools:context=".mvp.home.HomeActivity">
+            android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
+            <com.google.android.material.appbar.AppBarLayout
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/white"
-                app:cardElevation="5dp">
+                android:layout_width="match_parent"
+                android:theme="@style/AppTheme.AppBarOverlay">
 
-                <include layout="@layout/toolbar" />
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.appbar.AppBarLayout>
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
@@ -75,16 +79,16 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:background="@drawable/bt_nav_header_login_bg"
+            android:textColor="@android:color/white"
+            android:text="@string/config_delivery_address_tab_new"
+            android:id="@+id/add_new_payments"
+            android:onClick="addNewPayments"
             android:layout_marginLeft="13.3dp"
             android:layout_marginRight="13.3dp"
             android:layout_marginBottom="20dp"
-            android:id="@+id/add_new_payments"
-            android:onClick="addNewPayments"
-            android:background="@drawable/background_rect"
             android:fontFamily="@font/nunito_regular"
-            android:text="@string/config_delivery_address_tab_new"
-            android:textColor="@color/white" />
+            android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
 

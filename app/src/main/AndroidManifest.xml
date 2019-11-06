@@ -29,6 +29,7 @@
         <activity android:name=".mvp.payment.PaymentActivity" />
         <activity android:name=".mvp.newAddress.NewAddressActivity" />
         <activity android:name=".mvp.address.AddressActivity" />
+        <activity android:name=".mvp.orders.OrdersActivity" />
     </application>
 
 </manifest>

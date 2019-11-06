@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class AddressActivity extends AppCompatActivity implements AddressMVP.Vie
 
     private static AddressMVP.Presenter presenter;
     private RecyclerView rclViewAddress;
+    Toolbar toolbar;
     private String token;
     private Button addAddress;
 
@@ -41,6 +43,17 @@ public class AddressActivity extends AppCompatActivity implements AddressMVP.Vie
     private void bindView() {
         rclViewAddress = findViewById(R.id.recyclerViewAddress);
         addAddress = findViewById(R.id.add_new_address);
+        toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

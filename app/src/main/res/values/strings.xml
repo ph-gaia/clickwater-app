@@ -32,6 +32,7 @@
     <string name="btn_ok">OK</string>
     <string name="btn_retry">Tente novamente</string>
 
+    <string name="orders">Pedidos</string>
     <string name="close_kart">Concluir pedido</string>
     <string name="listProducts">Produtos</string>
     <string name="most_popular">Populares</string>
