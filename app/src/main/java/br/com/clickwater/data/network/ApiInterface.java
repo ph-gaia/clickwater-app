@@ -2,6 +2,7 @@ package br.com.clickwater.data.network;
 
 import br.com.clickwater.data.model.Address;
 import br.com.clickwater.data.model.AddressList;
+import br.com.clickwater.data.model.CreditCardList;
 import br.com.clickwater.data.model.DepositHome;
 import br.com.clickwater.data.model.ListProduct;
 import br.com.clickwater.data.model.Login;
@@ -38,9 +39,13 @@ public interface ApiInterface {
     @Headers("Content-Type:application/json")
     Call<RequestSeller> requestSeller(@Header("Authorization") String token);
 
-    @GET("seller/popular")
+    @GET("address")
     @Headers("Content-Type:application/json")
     Call<AddressList> requestAddress(@Header("Authorization") String token);
+
+    @GET("payments")
+    @Headers("Content-Type:application/json")
+    Call<CreditCardList> requestPayments(@Header("Authorization") String token);
 
     @POST("address")
     @Headers({"Content-Type:application/json"})

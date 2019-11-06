@@ -25,6 +25,19 @@ public class CreditCard {
     @SerializedName("securityNumber")
     public String securityNumber;
 
+    public String getNumberAsHidden() {
+        return String.format("**** **** **** %s", number);
+    }
+
+    public String getOwnerFullNameAsHidden() {
+        String[] nameList = ownerFullName.split(" ");
+
+        String firstName = nameList[0].substring(0, 2);
+        String lastName = nameList[nameList.length - 1];
+
+        return String.format("%s... %s", firstName, lastName);
+    }
+
     public String getNumber() {
         return number;
     }

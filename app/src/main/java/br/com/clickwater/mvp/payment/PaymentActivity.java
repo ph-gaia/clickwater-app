@@ -7,9 +7,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 import br.com.clickwater.R;
+import br.com.clickwater.adapter.CreditCardsListAdapter;
+import br.com.clickwater.data.model.CreditCard;
 import br.com.clickwater.utils.AppPreference;
 
 public class PaymentActivity extends AppCompatActivity implements PaymentMVP.View {
@@ -52,6 +58,14 @@ public class PaymentActivity extends AppCompatActivity implements PaymentMVP.Vie
     @Override
     public void showToast(String mensagem) {
         Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void popularRecyclerView(List<CreditCard> payments) {
+        CreditCardsListAdapter adapter = new CreditCardsListAdapter(this, payments);
+        rclViewPayments.setAdapter(adapter);
+        rclViewPayments.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rclViewPayments.setItemAnimator(new DefaultItemAnimator());
     }
 
     public void addNewPayments(View view) {

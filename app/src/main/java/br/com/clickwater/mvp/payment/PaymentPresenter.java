@@ -2,6 +2,10 @@ package br.com.clickwater.mvp.payment;
 
 import android.content.Context;
 
+import java.util.List;
+
+import br.com.clickwater.data.model.CreditCard;
+
 public class PaymentPresenter implements PaymentMVP.Presenter {
 
     private PaymentMVP.Model model;
@@ -20,5 +24,10 @@ public class PaymentPresenter implements PaymentMVP.Presenter {
     @Override
     public Context getContext() {
         return (Context) view;
+    }
+
+    @Override
+    public void popularRecyclerView(List<CreditCard> payments) {
+        view.popularRecyclerView(payments);
     }
 }
