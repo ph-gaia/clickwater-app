@@ -26,6 +26,7 @@
     <string name="password_invalid">Ops…! Sua senha deve conter 6 dígitos!</string>
     <string name="item_privacy_policy">Políticas de privacidade</string>
     <string name="privacy_policy"> Políticas de privacidade </string>
+    <string name="item_sign_out">Sair</string>
 
     <string name="btn_cancel">Cancelar</string>
     <string name="btn_dismiss">Fechar</string>
