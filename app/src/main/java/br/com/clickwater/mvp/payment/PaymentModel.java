@@ -1,6 +1,5 @@
 package br.com.clickwater.mvp.payment;
 
-import br.com.clickwater.data.model.AddressList;
 import br.com.clickwater.data.model.CreditCardList;
 import br.com.clickwater.data.network.ApiManager;
 import retrofit2.Call;
@@ -18,7 +17,7 @@ public class PaymentModel implements PaymentMVP.Model {
     @Override
     public void requestPayments(String token) {
         try {
-            Call<CreditCardList> call = ApiManager.get().requestPayments(token);
+            Call<CreditCardList> call = ApiManager.get().requestPayments("Bearer " + token);
 
             call.enqueue(new Callback<CreditCardList>() {
                 @Override

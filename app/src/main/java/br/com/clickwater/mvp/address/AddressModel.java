@@ -17,7 +17,7 @@ public class AddressModel implements AddressMVP.Model {
     @Override
     public void requestAddresses(String token) {
         try {
-            Call<AddressList> call = ApiManager.get().requestAddress(token);
+            Call<AddressList> call = ApiManager.get().requestAddress("Bearer " + token);
 
             call.enqueue(new Callback<AddressList>() {
                 @Override

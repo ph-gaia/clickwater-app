@@ -4,29 +4,33 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreditCard {
 
+    @SerializedName("id")
+    public Integer id;
+
     @SerializedName("number")
     public String number;
 
     @SerializedName("enterprise")
     public String enterprise;
 
-    @SerializedName("ownerFullName")
+    @SerializedName("owner_full_name")
     public String ownerFullName;
 
-    @SerializedName("ownerRegNumber")
+    @SerializedName("owner_reg_number")
     public String ownerRegNumber;
 
-    @SerializedName("expiryMonth")
+    @SerializedName("expiry_month")
     public Integer expiryMonth;
 
-    @SerializedName("expiryYear")
+    @SerializedName("expiry_year")
     public Integer expiryYear;
 
-    @SerializedName("securityNumber")
+    @SerializedName("security_number")
     public String securityNumber;
 
     public String getNumberAsHidden() {
-        return String.format("**** **** **** %s", number);
+        String[] numberTemp = number.split(" ");
+        return String.format("**** **** **** %s", numberTemp[numberTemp.length - 1]);
     }
 
     public String getOwnerFullNameAsHidden() {

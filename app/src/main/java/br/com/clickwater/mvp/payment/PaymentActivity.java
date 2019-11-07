@@ -1,5 +1,6 @@
 package br.com.clickwater.mvp.payment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import java.util.List;
 import br.com.clickwater.R;
 import br.com.clickwater.adapter.CreditCardsListAdapter;
 import br.com.clickwater.data.model.CreditCard;
+import br.com.clickwater.mvp.newPayment.NewPaymentActivity;
 import br.com.clickwater.utils.AppPreference;
 
 public class PaymentActivity extends AppCompatActivity implements PaymentMVP.View {
@@ -37,6 +39,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentMVP.Vie
         bindView();
 
         token = AppPreference.getTokenAuth(this);
+        presenter.requestPayments(token);
     }
 
     private void bindView() {
@@ -63,12 +66,13 @@ public class PaymentActivity extends AppCompatActivity implements PaymentMVP.Vie
     @Override
     public void popularRecyclerView(List<CreditCard> payments) {
         CreditCardsListAdapter adapter = new CreditCardsListAdapter(this, payments);
-        rclViewPayments.setAdapter(adapter);
-        rclViewPayments.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        rclViewPayments.setLayoutManager(new LinearLayoutManager(this));
         rclViewPayments.setItemAnimator(new DefaultItemAnimator());
+        rclViewPayments.setAdapter(adapter);
     }
 
     public void addNewPayments(View view) {
-        //
+        startActivity(new Intent(getApplicationContext(), NewPaymentActivity.class));
     }
 }

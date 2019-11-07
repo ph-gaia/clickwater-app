@@ -37,7 +37,7 @@ public class AddressesListAdapter extends RecyclerView.Adapter<AddressesListAdap
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         final Address item = OfferList.get(position);
         holder.tvStreet.setText( item.street );
-        holder.tvNumber.setText( "50" );
+        holder.tvNumber.setText( item.number.toString() );
         holder.tvZipCode.setText( item.zipCode );
         holder.tvNeighborhood.setText( item.neighborhood );
         holder.tvCity.setText( item.city );

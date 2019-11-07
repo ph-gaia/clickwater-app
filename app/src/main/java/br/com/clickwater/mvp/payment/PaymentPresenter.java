@@ -11,6 +11,10 @@ public class PaymentPresenter implements PaymentMVP.Presenter {
     private PaymentMVP.Model model;
     private PaymentMVP.View view;
 
+    public PaymentPresenter() {
+        this.model = new PaymentModel(this);
+    }
+
     @Override
     public void showToast(String mensagem) {
         view.showToast(mensagem);
@@ -29,5 +33,10 @@ public class PaymentPresenter implements PaymentMVP.Presenter {
     @Override
     public void popularRecyclerView(List<CreditCard> payments) {
         view.popularRecyclerView(payments);
+    }
+
+    @Override
+    public void requestPayments(String token) {
+        model.requestPayments(token);
     }
 }

@@ -18,6 +18,7 @@ public interface PaymentMVP {
         void setView( PaymentMVP.View view );
         Context getContext();
         void popularRecyclerView(List<CreditCard> payments);
+        void requestPayments(String token);
     }
 
     interface Model {

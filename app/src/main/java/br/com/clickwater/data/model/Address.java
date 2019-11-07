@@ -8,7 +8,10 @@ import br.com.clickwater.R;
 
 public class Address {
 
-    @SerializedName("street")
+    @SerializedName("id")
+    public Integer id;
+
+    @SerializedName("address")
     public String street;
 
     @SerializedName("number")
@@ -17,7 +20,7 @@ public class Address {
     @SerializedName("complement")
     public String complement;
 
-    @SerializedName("zipCode")
+    @SerializedName("zip_code")
     public String zipCode;
 
     @SerializedName("neighborhood")
@@ -30,7 +33,7 @@ public class Address {
     public Integer state;
 
     public String getStateName( Context context ) {
-        return context.getResources().getStringArray( R.array.states )[ 1 ];
+        return context.getResources().getStringArray( R.array.states )[ state ];
     }
 
     public String getStreet() {

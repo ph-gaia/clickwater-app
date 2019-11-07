@@ -66,9 +66,12 @@ public class AddressActivity extends AppCompatActivity implements AddressMVP.Vie
     @Override
     public void popularRecyclerView(List<Address> addresses) {
         AddressesListAdapter adapter = new AddressesListAdapter(this, addresses);
-        rclViewAddress.setAdapter(adapter);
-        rclViewAddress.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        rclViewAddress.setLayoutManager(llm);
         rclViewAddress.setItemAnimator(new DefaultItemAnimator());
+        rclViewAddress.setAdapter(adapter);
     }
 
     public void addNewAddress(View view) {

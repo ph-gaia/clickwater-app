@@ -7,6 +7,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import br.com.clickwater.R;
 import br.com.clickwater.data.model.Address;
 import br.com.clickwater.utils.AppPreference;
@@ -18,6 +20,7 @@ public class NewAddressActivity extends AppCompatActivity implements NewAddressM
     private Button btn_address;
     private EditText et_street, et_number, et_complement, et_zip_code, et_neighborhood, et_city;
     private Spinner sp_state;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,17 @@ public class NewAddressActivity extends AppCompatActivity implements NewAddressM
         et_zip_code = findViewById(R.id.et_zip_code);
         et_neighborhood = findViewById(R.id.et_neighborhood);
         et_city = findViewById(R.id.et_city);
+        toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void requestNewAddress(View view) {
