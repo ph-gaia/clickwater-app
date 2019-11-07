@@ -1,181 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_credit_card"
+    style="@style/NestedScrollBarStyle"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_weight="0.7"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/TextViewFormLabel"
-                    android:text="@string/add_delivery_address_street_label" />
-
-                <EditText
-                    android:id="@+id/et_street"
-                    style="@style/EditTextFormField"
-                    android:layout_width="match_parent"
-                    android:background="@drawable/bg_form_field"
-                    android:imeOptions="actionNext"
-                    android:inputType="text" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/TextViewFormLabel"
-                    android:text="@string/add_delivery_address_number_label" />
-
-                <EditText
-                    android:id="@+id/et_number"
-                    style="@style/EditTextFormField"
-                    android:layout_width="match_parent"
-                    android:background="@drawable/bg_form_field"
-                    android:imeOptions="actionNext"
-                    android:inputType="number" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
             android:orientation="vertical">
 
-            <TextView
-                style="@style/TextViewFormLabel"
-                android:text="@string/add_delivery_address_complement_label" />
-
-            <EditText
-                android:id="@+id/et_complement"
-                style="@style/EditTextFormField"
+            <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
-                android:background="@drawable/bg_form_field"
-                android:imeOptions="actionNext"
-                android:inputType="text" />
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginRight="12dp"
+                            android:layout_weight="0.7"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextViewFormLabel"
+                                android:text="@string/add_delivery_address_street_label" />
+
+                            <EditText
+                                android:id="@+id/et_street"
+                                style="@style/EditTextFormField"
+                                android:layout_width="match_parent"
+                                android:background="@drawable/bg_form_field"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextViewFormLabel"
+                                android:text="@string/add_delivery_address_number_label" />
+
+                            <EditText
+                                android:id="@+id/et_number"
+                                style="@style/EditTextFormField"
+                                android:layout_width="match_parent"
+                                android:background="@drawable/bg_form_field"
+                                android:imeOptions="actionNext"
+                                android:inputType="number" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextViewFormLabel"
+                            android:text="@string/add_delivery_address_complement_label" />
+
+                        <EditText
+                            android:id="@+id/et_complement"
+                            style="@style/EditTextFormField"
+                            android:layout_width="match_parent"
+                            android:background="@drawable/bg_form_field"
+                            android:imeOptions="actionNext"
+                            android:inputType="text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginRight="12dp"
+                            android:layout_weight="0.35"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextViewFormLabel"
+                                android:text="@string/add_delivery_address_zip_code_label" />
+
+                            <EditText
+                                android:id="@+id/et_zip_code"
+                                style="@style/EditTextFormField"
+                                android:layout_width="match_parent"
+                                android:background="@drawable/bg_form_field"
+                                android:imeOptions="actionNext"
+                                android:inputType="number" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.65"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextViewFormLabel"
+                                android:text="@string/add_delivery_address_neighborhood_label" />
+
+                            <EditText
+                                android:id="@+id/et_neighborhood"
+                                style="@style/EditTextFormField"
+                                android:layout_width="match_parent"
+                                android:background="@drawable/bg_form_field"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginRight="12dp"
+                            android:layout_weight="0.5"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextViewFormLabel"
+                                android:text="@string/add_delivery_address_city_label" />
+
+                            <EditText
+                                android:id="@+id/et_city"
+                                style="@style/EditTextFormField"
+                                android:layout_width="match_parent"
+                                android:background="@drawable/bg_form_field"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextViewFormLabel"
+                                android:text="@string/add_delivery_address_state_label" />
+
+                            <Spinner
+                                android:id="@+id/sp_state"
+                                style="@style/SpinnerForm"
+                                android:entries="@array/states" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/bt_nu_address"
+                        style="@style/ButtonForm"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginBottom="3dp"
+                        android:onClick="requestNewAddress"
+                        android:text="@string/add_delivery_address" />
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
+    </RelativeLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_weight="0.35"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/TextViewFormLabel"
-                    android:text="@string/add_delivery_address_zip_code_label" />
-
-                <EditText
-                    android:id="@+id/et_zip_code"
-                    style="@style/EditTextFormField"
-                    android:layout_width="match_parent"
-                    android:background="@drawable/bg_form_field"
-                    android:imeOptions="actionNext"
-                    android:inputType="number" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.65"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/TextViewFormLabel"
-                    android:text="@string/add_delivery_address_neighborhood_label" />
-
-                <EditText
-                    android:id="@+id/et_neighborhood"
-                    style="@style/EditTextFormField"
-                    android:layout_width="match_parent"
-                    android:background="@drawable/bg_form_field"
-                    android:imeOptions="actionNext"
-                    android:inputType="text" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_weight="0.5"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/TextViewFormLabel"
-                    android:text="@string/add_delivery_address_city_label" />
-
-                <EditText
-                    android:id="@+id/et_city"
-                    style="@style/EditTextFormField"
-                    android:layout_width="match_parent"
-                    android:background="@drawable/bg_form_field"
-                    android:imeOptions="actionNext"
-                    android:inputType="text" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/TextViewFormLabel"
-                    android:text="@string/add_delivery_address_state_label" />
-
-                <Spinner
-                    android:id="@+id/sp_state"
-                    style="@style/SpinnerForm"
-                    android:entries="@array/states" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/bt_nu_address"
-            style="@style/ButtonForm"
-            android:layout_gravity="end"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginRight="1dp"
-            android:layout_marginBottom="3dp"
-            android:onClick="requestNewAddress"
-            android:text="@string/add_delivery_address" />
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
