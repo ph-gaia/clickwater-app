@@ -15,10 +15,10 @@ public class NewAddressModel implements NewAddressMVP.Model {
     }
 
     @Override
-    public void requestCreateNewAddress(Address address) {
+    public void requestCreateNewAddress(Address address, String token) {
         try {
 
-            Call<Address> call = ApiManager.get().requestNewAddress(address);
+            Call<Address> call = ApiManager.get().requestNewAddress(token, address);
 
             call.enqueue(new Callback<Address>() {
                 @Override

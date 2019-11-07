@@ -8,6 +8,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import br.com.clickwater.R;
 import br.com.clickwater.data.model.Address;
@@ -18,6 +21,7 @@ public class NewAddressActivity extends AppCompatActivity implements NewAddressM
     private static NewAddressMVP.Presenter presenter;
     private String token;
     private Button btn_address;
+    private CoordinatorLayout coordinatorLayout;
     private EditText et_street, et_number, et_complement, et_zip_code, et_neighborhood, et_city;
     private Spinner sp_state;
     Toolbar toolbar;
@@ -36,6 +40,7 @@ public class NewAddressActivity extends AppCompatActivity implements NewAddressM
     }
 
     private void bindView() {
+        coordinatorLayout = findViewById(R.id.layout_address);
         btn_address = findViewById(R.id.bt_nu_address);
         et_street = findViewById(R.id.et_street);
         et_number = findViewById(R.id.et_number);
@@ -65,11 +70,12 @@ public class NewAddressActivity extends AppCompatActivity implements NewAddressM
         address.setNeighborhood(et_neighborhood.getText().toString());
         address.setCity(et_city.getText().toString());
 
-        presenter.requestCreateNewAddress(address);
+        presenter.requestCreateNewAddress(address, token);
     }
 
     @Override
     public void showToast(String mensagem) {
-        Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
+        Snackbar snackbar = Snackbar.make(coordinatorLayout, mensagem, Snackbar.LENGTH_SHORT);
+        snackbar.show();
     }
 }

@@ -14,10 +14,10 @@ public interface NewAddressMVP {
         void showToast( String mensagem );
         void setView( NewAddressMVP.View view );
         Context getContext();
-        void requestCreateNewAddress(Address address);
+        void requestCreateNewAddress(Address address, String token);
     }
 
     interface Model {
-        void requestCreateNewAddress(Address address);
+        void requestCreateNewAddress(Address address, String token);
     }
 }

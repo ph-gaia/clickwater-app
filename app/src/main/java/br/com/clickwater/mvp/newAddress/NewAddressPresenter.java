@@ -9,6 +9,10 @@ public class NewAddressPresenter implements NewAddressMVP.Presenter {
     private NewAddressMVP.Model model;
     private NewAddressMVP.View view;
 
+    public NewAddressPresenter() {
+        model = new NewAddressModel(this);
+    }
+
     @Override
     public void showToast(String mensagem) {
         view.showToast(mensagem);
@@ -25,7 +29,7 @@ public class NewAddressPresenter implements NewAddressMVP.Presenter {
     }
 
     @Override
-    public void requestCreateNewAddress(Address address) {
-        model.requestCreateNewAddress(address);
+    public void requestCreateNewAddress(Address address, String token) {
+        model.requestCreateNewAddress(address, token);
     }
 }
