@@ -20,7 +20,7 @@ import br.com.clickwater.data.model.CreditCard;
 import br.com.clickwater.mvp.newPayment.NewPaymentActivity;
 import br.com.clickwater.utils.AppPreference;
 
-public class PaymentActivity extends AppCompatActivity implements PaymentMVP.View {
+public class PaymentActivity extends AppCompatActivity implements PaymentMVP.View, CreditCardsListAdapter.PaymentsAdapterListener {
 
     private static PaymentMVP.Presenter presenter;
     private RecyclerView rclViewPayments;
@@ -65,7 +65,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentMVP.Vie
 
     @Override
     public void popularRecyclerView(List<CreditCard> payments) {
-        CreditCardsListAdapter adapter = new CreditCardsListAdapter(this, payments);
+        CreditCardsListAdapter adapter = new CreditCardsListAdapter(this, payments, this);
 
         rclViewPayments.setLayoutManager(new LinearLayoutManager(this));
         rclViewPayments.setItemAnimator(new DefaultItemAnimator());
@@ -74,5 +74,10 @@ public class PaymentActivity extends AppCompatActivity implements PaymentMVP.Vie
 
     public void addNewPayments(View view) {
         startActivity(new Intent(getApplicationContext(), NewPaymentActivity.class));
+    }
+
+    @Override
+    public void onPaymentsSelected(CreditCard card) {
+        showToast(card.getNumber());
     }
 }

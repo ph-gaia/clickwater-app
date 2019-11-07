@@ -19,10 +19,12 @@ public class CreditCardsListAdapter extends RecyclerView.Adapter<CreditCardsList
 
     Context context;
     private List<CreditCard> cardList;
+    private CreditCardsListAdapter.PaymentsAdapterListener listener;
 
-    public CreditCardsListAdapter(Context context, List<CreditCard> cardList) {
+    public CreditCardsListAdapter(Context context, List<CreditCard> cardList, PaymentsAdapterListener listener) {
         this.context = context;
         this.cardList = cardList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -57,7 +59,18 @@ public class CreditCardsListAdapter extends RecyclerView.Adapter<CreditCardsList
             tvNumber = view.findViewById( R.id.tv_number );
             tvOwnerName= view.findViewById( R.id.tv_owner_name );
             btRemove = itemView.findViewById( R.id.bt_remove );
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onPaymentsSelected(cardList.get(getAdapterPosition()));
+                }
+            });
         }
+    }
+
+    public interface PaymentsAdapterListener {
+        void onPaymentsSelected(CreditCard card);
     }
 
 }

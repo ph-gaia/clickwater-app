@@ -6,7 +6,8 @@
     style="@style/NestedScrollBarStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".mvp.newPayment.NewPaymentActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -56,13 +57,14 @@
                             style="@style/TextViewFormLabel"
                             android:text="@string/add_credit_card_number_label" />
 
-                        <EditText
+                        <com.santalu.maskedittext.MaskEditText
                             android:id="@+id/met_credit_card_number"
                             style="@style/EditTextFormField"
                             android:layout_width="match_parent"
                             android:background="@drawable/bg_form_field"
+                            android:inputType="number"
                             android:imeOptions="actionNext"
-                            android:inputType="number" />
+                            app:met_mask="#### #### #### ####"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -112,13 +114,13 @@
                         style="@style/TextViewFormLabel"
                         android:text="@string/add_credit_card_owner_reg_number_label" />
 
-                    <EditText
+                    <com.santalu.maskedittext.MaskEditText
                         android:id="@+id/met_credit_card_owner_reg"
                         style="@style/EditTextFormField"
                         android:layout_width="match_parent"
                         android:background="@drawable/bg_form_field"
-                        android:imeOptions="actionNext"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:imeOptions="actionNext"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -222,6 +224,7 @@
                     android:layout_marginEnd="1dp"
                     android:layout_marginRight="1dp"
                     android:layout_marginBottom="3dp"
+                    android:onClick="addNewCard"
                     android:text="@string/add_credit_card" />
 
             </LinearLayout>

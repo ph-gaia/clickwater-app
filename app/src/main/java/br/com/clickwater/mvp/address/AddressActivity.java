@@ -3,7 +3,6 @@ package br.com.clickwater.mvp.address;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -20,13 +19,12 @@ import br.com.clickwater.mvp.newAddress.NewAddressActivity;
 import br.com.clickwater.utils.AppPreference;
 
 
-public class AddressActivity extends AppCompatActivity implements AddressMVP.View {
+public class AddressActivity extends AppCompatActivity implements AddressMVP.View, AddressesListAdapter.AddressAdapterListener {
 
     private static AddressMVP.Presenter presenter;
     private RecyclerView rclViewAddress;
     Toolbar toolbar;
     private String token;
-    private Button addAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +42,6 @@ public class AddressActivity extends AppCompatActivity implements AddressMVP.Vie
 
     private void bindView() {
         rclViewAddress = findViewById(R.id.recyclerViewAddress);
-        addAddress = findViewById(R.id.add_new_address);
         toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
@@ -65,7 +62,7 @@ public class AddressActivity extends AppCompatActivity implements AddressMVP.Vie
 
     @Override
     public void popularRecyclerView(List<Address> addresses) {
-        AddressesListAdapter adapter = new AddressesListAdapter(this, addresses);
+        AddressesListAdapter adapter = new AddressesListAdapter(this, addresses, this);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
@@ -77,5 +74,10 @@ public class AddressActivity extends AppCompatActivity implements AddressMVP.Vie
     public void addNewAddress(View view) {
         Intent intent = new Intent(getApplicationContext(), NewAddressActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onAddressSelected(Address address) {
+        showToast(address.street);
     }
 }

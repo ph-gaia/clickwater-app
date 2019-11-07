@@ -18,11 +18,13 @@ import br.com.clickwater.data.model.Address;
 public class AddressesListAdapter extends RecyclerView.Adapter<AddressesListAdapter.MyViewHolder> {
 
     Context context;
-    private List<Address> OfferList;
+    private List<Address> addressList;
+    private AddressesListAdapter.AddressAdapterListener listener;
 
-    public AddressesListAdapter(Context context, List<Address> offerList) {
+    public AddressesListAdapter(Context context, List<Address> addressList, AddressAdapterListener listener) {
         this.context = context;
-        OfferList = offerList;
+        this.addressList = addressList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -35,9 +37,9 @@ public class AddressesListAdapter extends RecyclerView.Adapter<AddressesListAdap
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        final Address item = OfferList.get(position);
+        final Address item = addressList.get(position);
         holder.tvStreet.setText( item.street );
-        holder.tvNumber.setText( item.number.toString() );
+        holder.tvNumber.setText( item.number );
         holder.tvZipCode.setText( item.zipCode );
         holder.tvNeighborhood.setText( item.neighborhood );
         holder.tvCity.setText( item.city );
@@ -47,7 +49,7 @@ public class AddressesListAdapter extends RecyclerView.Adapter<AddressesListAdap
 
     @Override
     public int getItemCount() {
-        return OfferList.size();
+        return addressList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -69,6 +71,17 @@ public class AddressesListAdapter extends RecyclerView.Adapter<AddressesListAdap
 
             btRemove = itemView.findViewById( R.id.bt_remove );
             // btRemove.setOnClickListener( this );
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onAddressSelected(addressList.get(getAdapterPosition()));
+                }
+            });
         }
+    }
+
+    public interface AddressAdapterListener {
+        void onAddressSelected(Address address);
     }
 }
