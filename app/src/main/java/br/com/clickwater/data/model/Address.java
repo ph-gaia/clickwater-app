@@ -15,7 +15,7 @@ public class Address {
     public String street;
 
     @SerializedName("number")
-    public Integer number;
+    public String number;
 
     @SerializedName("complement")
     public String complement;
@@ -44,11 +44,11 @@ public class Address {
         this.street = street;
     }
 
-    public Integer getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 

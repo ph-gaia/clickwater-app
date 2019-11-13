@@ -45,6 +45,13 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
+    <string name="label_seller">Distribuidora</string>
+    <string name="label_count_label">Quantidade</string>
+    <string name="label_data_label">Data do pedido</string>
+    <string name="amount_label">Total do pedido</string>
+    <string name="address_label">Endereço de entrega</string>
+    <string name="status_label">Status do pedido</string>
+
     <!-- ConfigCreditCardsListFragment -->
     <string name="config_credit_cards_tab_list">CARTÕES</string>
 

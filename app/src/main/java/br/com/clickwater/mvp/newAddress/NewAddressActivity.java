@@ -64,7 +64,7 @@ public class NewAddressActivity extends AppCompatActivity implements NewAddressM
     public void requestNewAddress(View view) {
         Address address = new Address();
         address.setStreet(et_street.getText().toString());
-        address.setNumber(Integer.parseInt(et_number.getText().toString()));
+        address.setNumber(et_number.getText().toString());
         address.setComplement(et_complement.getText().toString());
         address.setZipCode(et_number.getText().toString());
         address.setNeighborhood(et_neighborhood.getText().toString());
