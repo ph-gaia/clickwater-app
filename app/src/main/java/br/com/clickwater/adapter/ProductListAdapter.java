@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,6 +34,8 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         ImageView image;
         TextView title;
         LinearLayout linear;
+        EditText et_quantity;
+        Button btnPlus, btnLess;
 
         public MyViewHolder(View view) {
             super(view);
@@ -39,6 +43,9 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             image = view.findViewById(R.id.image);
             title = view.findViewById(R.id.title);
             linear = view.findViewById(R.id.linear);
+            btnLess = view.findViewById(R.id.btnLess);
+            btnPlus = view.findViewById(R.id.btnPlus);
+            et_quantity = view.findViewById(R.id.et_quantity);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -63,8 +70,9 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         final Product lists = ProductList.get(position);
+        int count = Integer.parseInt(holder.et_quantity.getText().toString());
 
         Glide.with(context)
                 .load(lists.getImage_url())
@@ -73,19 +81,29 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
                 .into(holder.image);
         holder.title.setText(lists.getName());
 
-        if (myPos == position) {
-            holder.title.setTextColor(Color.parseColor("#000000"));
-            holder.linear.setBackgroundResource(R.drawable.ic_selector_1);
-        } else {
-            holder.title.setTextColor(Color.parseColor("#484646"));
-            holder.linear.setBackgroundResource(R.drawable.ic_selector_2);
-        }
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 myPos = position;
                 notifyDataSetChanged();
+            }
+        });
+
+        holder.btnPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int count = Integer.parseInt(holder.et_quantity.getText().toString());
+                String counter = String.valueOf(count + 1);
+                holder.et_quantity.setText(counter);
+            }
+        });
+
+        holder.btnLess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int count = Integer.parseInt(holder.et_quantity.getText().toString());
+                String counter = String.valueOf(count - 1);
+                holder.et_quantity.setText(counter);
             }
         });
     }

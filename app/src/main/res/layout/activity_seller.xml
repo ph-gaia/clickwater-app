@@ -102,7 +102,6 @@
             android:id="@+id/recyclerViewProducts"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="22.7dp"
             android:paddingTop="26dp"
             android:paddingBottom="60dp"
             android:clipToPadding="false"/>

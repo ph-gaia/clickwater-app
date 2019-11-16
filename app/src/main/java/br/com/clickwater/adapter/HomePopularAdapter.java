@@ -29,9 +29,9 @@ public class HomePopularAdapter extends RecyclerView.Adapter<HomePopularAdapter.
         TextView title, address;
         public MyViewHolder(View view) {
             super(view);
-            image = (ImageView) view.findViewById(R.id.image);
-            title = (TextView) view.findViewById(R.id.title);
-            address = (TextView) view.findViewById(R.id.txtAddress);
+            image = view.findViewById(R.id.image);
+            title = view.findViewById(R.id.title);
+            address = view.findViewById(R.id.txtAddress);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
