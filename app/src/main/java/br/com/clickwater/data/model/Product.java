@@ -22,6 +22,12 @@ public class Product {
     @SerializedName("addtional_info")
     private String addtional_info;
 
+    @SerializedName("price")
+    private float price;
+
+    @SerializedName("promotional_price")
+    private float promotional_price;
+
     public int getId() {
         return id;
     }
@@ -68,5 +74,21 @@ public class Product {
 
     public void setAddtional_info(String addtional_info) {
         this.addtional_info = addtional_info;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public float getPromotional_price() {
+        return promotional_price;
+    }
+
+    public void setPromotional_price(float promotional_price) {
+        this.promotional_price = promotional_price;
     }
 }

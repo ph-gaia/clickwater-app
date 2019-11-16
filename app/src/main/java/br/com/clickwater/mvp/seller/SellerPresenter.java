@@ -37,8 +37,8 @@ public class SellerPresenter implements SellerMVP.Presenter {
     }
 
     @Override
-    public void requestSellerDetails(String token) {
-        model.requestSellerDetails(token);
+    public void requestSellerDetails(String token, int sellerId) {
+        model.requestSellerDetails(token, sellerId);
     }
 
     @Override

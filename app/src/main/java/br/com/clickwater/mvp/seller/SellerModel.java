@@ -21,9 +21,9 @@ public class SellerModel implements SellerMVP.Model {
     }
 
     @Override
-    public void requestSellerDetails(String token) {
+    public void requestSellerDetails(String token, int sellerId) {
         try {
-            Call<RequestSeller> call = ApiManager.get().requestSeller(token);
+            Call<RequestSeller> call = ApiManager.get().requestSeller(token, sellerId);
 
             call.enqueue(new Callback<RequestSeller>() {
                 @Override
@@ -49,7 +49,7 @@ public class SellerModel implements SellerMVP.Model {
     @Override
     public void requestProductSeller(String token, int sellerId) {
         try {
-            Call<ListProduct> call = ApiManager.get().requestProducts(token);
+            Call<ListProduct> call = ApiManager.get().requestProducts(token, sellerId);
 
             call.enqueue(new Callback<ListProduct>() {
                 @Override

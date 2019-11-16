@@ -21,14 +21,14 @@ public interface SellerMVP {
         void setView( SellerMVP.View view );
         Context getContext();
         void popularSellerDetails(Seller seller);
-        void requestSellerDetails(String token);
+        void requestSellerDetails(String token, int sellerId);
         void requestProductSeller(String token, int sellerId);
         void populateListProducts(List<Product> listProducts);
     }
 
 
     interface Model {
-        void requestSellerDetails(String token);
+        void requestSellerDetails(String token, int sellerId);
         void requestProductSeller(String token, int sellerId);
     }
 }

@@ -35,6 +35,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         TextView title;
         LinearLayout linear;
         EditText et_quantity;
+        TextView price;
         Button btnPlus, btnLess;
 
         public MyViewHolder(View view) {
@@ -43,6 +44,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             image = view.findViewById(R.id.image);
             title = view.findViewById(R.id.title);
             linear = view.findViewById(R.id.linear);
+            price = view.findViewById(R.id.price);
             btnLess = view.findViewById(R.id.btnLess);
             btnPlus = view.findViewById(R.id.btnPlus);
             et_quantity = view.findViewById(R.id.et_quantity);
@@ -80,6 +82,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
                 .placeholder(R.drawable.loading_spinner)
                 .into(holder.image);
         holder.title.setText(lists.getName());
+        holder.price.setText(String.valueOf(lists.getPrice()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

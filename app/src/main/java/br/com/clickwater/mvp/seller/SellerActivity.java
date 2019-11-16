@@ -29,6 +29,7 @@ public class SellerActivity extends AppCompatActivity implements SellerMVP.View,
     private RecyclerView rclViewProducts;
     private String token;
     private Toolbar actionbar;
+    private int sellerId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +41,10 @@ public class SellerActivity extends AppCompatActivity implements SellerMVP.View,
 
         bindView();
 
+        sellerId = getIntent().getIntExtra("sellerId",1);
         token = AppPreference.getTokenAuth(this);
-        presenter.requestSellerDetails(token);
-        presenter.requestProductSeller(token, 1);
+        presenter.requestSellerDetails(token, sellerId);
+        presenter.requestProductSeller(token, sellerId);
     }
 
     private void bindView() {

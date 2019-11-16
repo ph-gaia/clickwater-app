@@ -73,12 +73,6 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View, Hom
 
             actionbar.setTitle(R.string.app_name);
 
-//            actionbar.setNavigationOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    finish();
-//                }
-//            });
         }
 
         navigator.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -135,6 +129,8 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View, Hom
 
     @Override
     public void onSellerSelected(Seller seller) {
-        startActivity(new Intent(getApplicationContext(), SellerActivity.class));
+        Intent i = new Intent(getApplicationContext(), SellerActivity.class);
+        i.putExtra("sellerId", seller.getId());
+        startActivity(i);
     }
 }

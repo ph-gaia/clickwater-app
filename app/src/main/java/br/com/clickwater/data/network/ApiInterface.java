@@ -17,6 +17,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiInterface {
 
@@ -36,9 +38,9 @@ public interface ApiInterface {
     @Headers("Content-Type:application/json")
     Call<DepositHome> requestNews(@Header("Authorization") String token);
 
-    @GET("seller/1")
+    @GET("seller/{sellerId}")
     @Headers("Content-Type:application/json")
-    Call<RequestSeller> requestSeller(@Header("Authorization") String token);
+    Call<RequestSeller> requestSeller(@Header("Authorization") String token, @Path("sellerId") int sellerId);
 
     @GET("address")
     @Headers("Content-Type:application/json")
@@ -60,7 +62,7 @@ public interface ApiInterface {
     @Headers({"Content-Type:application/json"})
     Call<RequestUser> requestCreateUsers(@Body RequestUser address);
 
-    @GET("product")
+    @GET("product/seller/{sellerId}")
     @Headers("Content-Type:application/json")
-    Call<ListProduct> requestProducts(@Header("Authorization") String token);
+    Call<ListProduct> requestProducts(@Header("Authorization") String token, @Path("sellerId") int sellerId);
 }
