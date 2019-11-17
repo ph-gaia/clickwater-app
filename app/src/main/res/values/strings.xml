@@ -141,4 +141,9 @@
 
     <string name="update_delivery_address">Atualizar endereço</string>
     <string name="update_delivery_address_going">Atualizando&#8230;</string>
+
+    <string name="label_confirm">Confirme seu pedido</string>
+    <string name="label_confirm_items">Confirme seu pedido</string>
+    <string name="label_confirm_address">Confirme seu endereço de entrega</string>
+    <string name="label_confirm_schedule">Agende dia e hora para sua entrega</string>
 </resources>
