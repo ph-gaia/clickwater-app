@@ -1,7 +1,9 @@
 package br.com.clickwater.mvp.seller;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +21,7 @@ import br.com.clickwater.adapter.ProductListAdapter;
 import br.com.clickwater.data.model.Product;
 import br.com.clickwater.data.model.Seller;
 import br.com.clickwater.utils.AppPreference;
+import br.com.clickwater.utils.ShopCart;
 
 
 public class SellerActivity extends AppCompatActivity implements SellerMVP.View, ProductListAdapter.ProductAdapterListener {
@@ -29,6 +32,7 @@ public class SellerActivity extends AppCompatActivity implements SellerMVP.View,
     private RecyclerView rclViewProducts;
     private String token;
     private Toolbar actionbar;
+    private Button btnDoneOrder;
     private int sellerId;
 
     @Override
@@ -52,6 +56,7 @@ public class SellerActivity extends AppCompatActivity implements SellerMVP.View,
         txtName = findViewById(R.id.txtName);
         txtAddress = findViewById(R.id.txtAddress);
         rclViewProducts = findViewById(R.id.recyclerViewProducts);
+        btnDoneOrder = findViewById(R.id.done_order);
         actionbar = findViewById(R.id.toolbar);
         if (null != actionbar) {
             actionbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
@@ -94,6 +99,11 @@ public class SellerActivity extends AppCompatActivity implements SellerMVP.View,
     @Override
     public void onProductSelected(Product product) {
         showToast(product.getName());
+    }
+
+    public void finisheOrder (View view) {
+        ShopCart cart = new ShopCart();
+        Log.d("DEBUG", "CARRINHO DE COMPRA " + cart.getCart(this));
     }
 }
 

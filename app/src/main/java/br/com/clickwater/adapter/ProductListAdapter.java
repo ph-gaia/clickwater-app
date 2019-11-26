@@ -19,7 +19,10 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import br.com.clickwater.R;
+import br.com.clickwater.data.model.Cart;
+import br.com.clickwater.data.model.ItemCart;
 import br.com.clickwater.data.model.Product;
+import br.com.clickwater.utils.ShopCart;
 
 
 public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.MyViewHolder> {
@@ -27,6 +30,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     Context context;
     private List<Product> ProductList;
     int myPos = 0;
+    Cart cart = new Cart();
     private ProductListAdapter.ProductAdapterListener listener;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -73,16 +77,18 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
-        final Product lists = ProductList.get(position);
+        final Product product = ProductList.get(position);
+        ItemCart item = new ItemCart();
+
         int count = Integer.parseInt(holder.et_quantity.getText().toString());
 
         Glide.with(context)
-                .load(lists.getImage_url())
+                .load(product.getImage_url())
                 .centerCrop()
                 .placeholder(R.drawable.loading_spinner)
                 .into(holder.image);
-        holder.title.setText(lists.getName());
-        holder.price.setText(String.valueOf(lists.getPrice()));
+        holder.title.setText(product.getName());
+        holder.price.setText(String.valueOf(product.getPrice()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,6 +104,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
                 int count = Integer.parseInt(holder.et_quantity.getText().toString());
                 String counter = String.valueOf(count + 1);
                 holder.et_quantity.setText(counter);
+
             }
         });
 

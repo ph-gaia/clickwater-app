@@ -8,11 +8,59 @@ public class ItemCart {
 
     private int quantity;
 
-    private float price;
+    private Double price;
 
-    private float discount;
+    private Double discount;
 
-    private float subTotal;
+    private Double subTotal;
 
-    private float total;
+    private Double total;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Double discount) {
+        this.discount = discount;
+    }
+
+    public Double getSubTotal() {
+        return subTotal;
+    }
+
+    public void setSubTotal(Double subTotal) {
+        this.subTotal = subTotal;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
 }

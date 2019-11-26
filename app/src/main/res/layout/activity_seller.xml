@@ -109,6 +109,8 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/done_order"
+        android:onClick="finisheOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bt_nav_header_login_bg"
