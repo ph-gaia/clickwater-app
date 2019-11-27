@@ -78,7 +78,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         final Product product = ProductList.get(position);
-        ItemCart item = new ItemCart();
+        final ItemCart item = cart.findItem(position);
 
         int count = Integer.parseInt(holder.et_quantity.getText().toString());
 
@@ -98,6 +98,10 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             }
         });
 
+        if (item.getQuantity() == 0) {
+            holder.btnLess.setEnabled(false);
+        }
+
         holder.btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,6 +109,14 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
                 String counter = String.valueOf(count + 1);
                 holder.et_quantity.setText(counter);
 
+                ItemCart i = new ItemCart();
+                i.setProduct(product);
+                i.setPrice(product.getPrice());
+                i.setQuantity(count + 1);
+                i.setSubTotal(product.getPrice() * (count + 1));
+                i.setTotal(product.getPrice() * (count + 1));
+
+                cart.adiciona(i);
             }
         });
 

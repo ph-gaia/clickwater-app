@@ -1,7 +1,5 @@
 package br.com.clickwater.data.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,5 +17,16 @@ public class Cart {
     public void remove(int indiceItem) {
         ItemCart removido = itens.remove(indiceItem);
         total -= removido.getTotal();
+    }
+
+    public void atualiza(ItemCart item, int indiceItem) {
+        ItemCart itemAtual = itens.get(indiceItem);
+        itemAtual.setQuantity(item.getQuantity());
+        itemAtual.setTotal(item.getPrice() * item.getQuantity());
+    }
+
+    public ItemCart findItem(int indiceItem) {
+        ItemCart item = itens.get(indiceItem);
+        return item;
     }
 }
